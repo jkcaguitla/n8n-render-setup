@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: starter
+    healthCheckPath: /
+    autoDeploy: true
+    
+    envVars:
+      - key: N8N_HOST
+        value: n8n-yourname.onrender.com
+
+      - key: N8N_PROTOCOL
+        value: https
+
+      - key: WEBHOOK_URL
+        value: https://n8n-yourname.onrender.com/
+
+      - key: N8N_ENCRYPTION_KEY
+        value: CHANGE_THIS_TO_A_64_CHARACTER_RANDOM_STRING
+
+      # Database
+      - key: DB_TYPE
+        value: postgresdb
+
+      - key: DB_POSTGRESDB_HOST
+        value: YOUR_RENDER_DB_HOST
+
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+
+      - key: DB_POSTGRESDB_DATABASE
+        value: YOUR_RENDER_DB_NAME
+
+      - key: DB_POSTGRESDB_USER
+        value: YOUR_RENDER_DB_USER
+
+      - key: DB_POSTGRESDB_PASSWORD
+        value: YOUR_RENDER_DB_PASSWORD
+
+      # Authentication
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: strongpassword123
